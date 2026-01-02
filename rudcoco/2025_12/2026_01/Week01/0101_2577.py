@@ -15,7 +15,6 @@ def main():
     nine = 0
 
     abc = a * b * c
-    
     abc = str(abc)
 
     for i in abc:
