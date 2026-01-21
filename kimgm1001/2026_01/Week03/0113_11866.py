@@ -1,17 +1,20 @@
 import sys
+from collections import deque
 
-input = sys.stdin.readline
+def main():
+    input = sys.stdin.readline
 
-n, k = map(int, input().split())
+    n, k = map(int, input().split())
 
-arr = list(range(1, n + 1))
+    arr = deque(i for i in range(1, n + 1))
 
-res = []
+    arr1 = []
 
-for _ in range(len(arr)):
-    res.append(arr.pop(k - 1))
-    k += k
-    while k > len(arr):
-        k -= len(arr)
+    for _ in range(n):
+        arr.rotate(-k + 1)
+        arr1.append(arr.popleft())
 
-print(*res)
+    print(f'<{', '.join(map(str, arr1))}>')
+
+if __name__ == '__main__':
+    main()
