@@ -4,19 +4,22 @@
 
 import sys
 
-input = sys.stdin.readline
+def main():
+    input = sys.stdin.readline
 
-m, n = map(int, input().split())
+    m, n = map(int, input().split())
 
-arr = [False, False] + [True] * (n - 1)
+    arr = [False, False] + [True] * (n - 1)
 
-for temp in range(2, int(n**0.5) + 1):
-    if arr[temp] == True:
-        for j in range(temp * 2, n + 1, temp):
-            arr[j] = False
+    for temp in range(2, int(n**0.5) + 1):
+        if arr[temp] == True:
+            for j in range(temp * 2, n + 1, temp):
+                arr[j] = False
 
-for i in range(m, n + 1):
-    if arr[i] == True:
-        print(i)
+    for i in range(m, n + 1):
+        if arr[i] == True:
+            print(i)
 
+if __name__ == '__main__':
+    main()
 ## 풀이가 존나 높다..
